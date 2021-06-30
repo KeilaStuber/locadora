@@ -1,1 +1,0 @@
-ALTER TABLE cliente CHANGE COLUMN aniversario nascimento DATE;

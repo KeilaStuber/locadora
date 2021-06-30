@@ -1,8 +1,8 @@
 CREATE TABLE cliente (
-  id int not null primary key auto_increment,
-  nome varchar(255),
-  cpf varchar(14),
-  aniversario date ,
-  telefone varchar(11),
-  email varchar(255)
+  id INT NOT NULL PRIMARY KEY auto_increment,
+  nome VARCHAR (255) NOT NULL,
+  cpf VARCHAR (14) NOT NULL,
+  nascimento DATE NOT NULL ,
+  telefone VARCHAR(11) NOT NULL,
+  email VARCHAR (255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
