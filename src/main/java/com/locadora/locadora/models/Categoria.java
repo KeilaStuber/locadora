@@ -8,11 +8,12 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Table (name = Categoria.TABLE_NAME)
+
 public class Categoria {
     static final String TABLE_NAME="categoria";
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String categoria;
-    private String valor;
+    private String preco;
 }

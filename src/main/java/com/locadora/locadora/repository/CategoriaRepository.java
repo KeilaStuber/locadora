@@ -1,5 +1,4 @@
 package com.locadora.locadora.repository;
-
 import com.locadora.locadora.models.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
