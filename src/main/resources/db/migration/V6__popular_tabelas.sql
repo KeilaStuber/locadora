@@ -10,6 +10,7 @@ INSERT INTO categoria (categoria,preco) VALUES('HATCH','70,00');
 INSERT INTO categoria (categoria,preco) VALUES('CONVERSIVEL','100,00');
 INSERT INTO categoria (categoria,preco) VALUES('ESPORTIVO','150,00');
 INSERT INTO categoria (categoria,preco) VALUES('PICAPE','120,00');
+
 INSERT INTO carro  (nome,marca,categoria,ano) VALUES('Corsa Classic','Chevrolett',1,'2015');
 INSERT INTO carro  (nome,marca,categoria,ano) VALUES('Duster','Renaut',2,'2020');
 INSERT INTO carro  (nome,marca,categoria,ano) VALUES('Focus','Ford',3,'2018');
