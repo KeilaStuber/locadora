@@ -13,7 +13,7 @@ public class Categoria {
     static final String TABLE_NAME="categoria";
     private static final long serialVersionUID=1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String preco;
     @Enumerated(value = EnumType.STRING)private TipoCategoria categoria;
 
