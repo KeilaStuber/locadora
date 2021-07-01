@@ -2,6 +2,6 @@ CREATE TABLE carro (
   id INT NOT NULL PRIMARY KEY auto_increment,
   nome VARCHAR (100) NOT NULL DEFAULT '',
   marca VARCHAR (50) NOT NULL DEFAULT '',
-  categoria VARCHAR (50) NOT NULL DEFAULT '',
+  categoria INT NOT NULL,
   ano DATE NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

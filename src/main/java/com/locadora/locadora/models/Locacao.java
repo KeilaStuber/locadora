@@ -16,11 +16,9 @@ public class Locacao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String cliente;
-    private String categoria;
     private String carro;
     private String valor;
     private String dataini;
     private String datafim;
-
 
 }

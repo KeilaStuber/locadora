@@ -14,6 +14,7 @@ public class Categoria {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String categoria;
+    private TipoCategoria categoria;
+    @Enumerated(value = EnumType.STRING)
     private String preco;
 }
