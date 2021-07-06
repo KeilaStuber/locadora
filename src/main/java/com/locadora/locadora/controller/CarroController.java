@@ -3,6 +3,9 @@ import com.locadora.locadora.models.Carro;
 import com.locadora.locadora.models.Cliente;
 import com.locadora.locadora.repository.CarroRepository;
 import java.util.List;
+import java.util.Optional;
+
+import com.locadora.locadora.service.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +27,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/carro")
 public class CarroController {
     @Autowired
-    public CarroRepository carroRepository;
+    public CarroService carroService;
     @GetMapping
-    public ResponseEntity<List <Carro>> listaCarro() {
+    public ResponseEntity<List <Carro>> listarCarros() {
 
         ResponseEntity response = ResponseEntity.badRequest().build();
-        List<Carro> carroList = carroRepository.findAll();
+        List<Carro> carroList = carroService.findAll();
 
         if (carroList != null) {
             if (carroList.size() > 0) {
@@ -42,23 +45,25 @@ public class CarroController {
     }
 
     @GetMapping("/{id}")
-    public Carro lCarro (@PathVariable(value = "id") long id) {return carroRepository.findById(id);}
+    public Optional<Carro> listarCarroId (@PathVariable(value = "id") long id) {
+        return carroService.getCarro(id);
+    }
 
     @PutMapping("/{id}")
-    public Carro aCarro(@RequestBody Carro carro) {
-        return carroRepository.save(carro);
+    public Carro atualizarCarro(@RequestBody Carro carro) {
+        return carroService.save(carro);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Carro sCarro(@RequestBody Carro carro) {
-        return carroRepository.save(carro);
+    public Carro cadastrarCarro(@RequestBody Carro carro) {
+        return carroService.save(carro);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void dCarro(@PathVariable(value = "id") long id) {
-        carroRepository.deleteById(id);
+    public void deletarCarro(@PathVariable(value = "id") long id) {
+        carroService.deleteById(id);
     }
 
 }

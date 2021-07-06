@@ -1,6 +1,10 @@
 package com.locadora.locadora.controller;
+import com.locadora.locadora.models.Cliente;
 import com.locadora.locadora.repository.LocacaoRepository;
 import java.util.List;
+import java.util.Optional;
+
+import com.locadora.locadora.service.LocacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +27,13 @@ import com.locadora.locadora.models.Locacao;
 
 public class LocacaoController {
     @Autowired
-    public LocacaoRepository locacaoRepository;
+    public LocacaoService locacaoService;
+
     @GetMapping
     public ResponseEntity<List<Locacao>> listaLocacoes() {
 
         ResponseEntity response = ResponseEntity.badRequest().build();
-        List<Locacao> locacaoList = locacaoRepository.findAll();
+        List<Locacao> locacaoList = locacaoService.findAll();
 
         if (locacaoList != null) {
             if (locacaoList.size() > 0) {
@@ -40,16 +45,16 @@ public class LocacaoController {
         return response;
     }
     @GetMapping("/{id}")
-    public Locacao lLocacao (@PathVariable(value = "id") long id) {return locacaoRepository.findById(id);}
+    public Optional<Locacao> listarLocacaoId  (@PathVariable(value = "id") long id) {return locacaoService.getLocacao(id);}
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Locacao sLocacao(@RequestBody Locacao locacao) {return locacaoRepository.save(locacao);}
+    public Locacao sLocacao(@RequestBody Locacao locacao) {return locacaoService.save(locacao);}
 
     @PutMapping("/{id}")
-    public Locacao aLocacao(@RequestBody Locacao locacao) {return locacaoRepository.save(locacao);}
+    public Locacao aLocacao(@RequestBody Locacao locacao) {return locacaoService.save(locacao);}
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void dLocacao(@PathVariable(value = "id") long id) {locacaoRepository.deleteById(id);}
+    public void dLocacao(@PathVariable(value = "id") long id) {locacaoService.deleteById(id);}
 }
