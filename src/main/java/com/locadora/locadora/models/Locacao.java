@@ -21,4 +21,9 @@ public class Locacao {
     private String dataini;
     private String datafim;
 
+    public void setCliente(Cliente cliente) {
+    }
+
+    public void setCarro(Carro carro) {
+    }
 }
