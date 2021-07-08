@@ -36,8 +36,10 @@ public class LocacaoService {
                     locacao.setCarro(optionalCarro.get());
                     locacao.setCliente(optionalCliente.get());
                     return locacaoRepository.save(locacao);
+                }else{
+                    throw new NullPointerException ("Verifique se o carro e o cliente estão cadastrados");
                 }
-            }
+            } throw new NullPointerException("Cadastro não localizado");
         }
         return null;
     }
